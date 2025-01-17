@@ -14,28 +14,23 @@ var deleteBtn;
 
 btn.addEventListener("click", () => {
   if (input.value.trim() === "") {
-  } else {
-    list = document.createElement("li");
-
-    deleteBtn = document.createElement("button");
-
-    deleteBtn.textContent = "Delete Element";
-
-    // list.textContent = input.value;
-
-    list.textContent = input.value;
-
-    unorderedList.appendChild(list);
-    list.appendChild(deleteBtn);
-
-    input.value = "";
-
-    deleteBtn.addEventListener("click", () => {
-      // list.removeChild();
-      unorderedList.removeChild(list);
-      list.removeChild(deleteBtn);
-    });
+    return;
   }
+  
+  const list = document.createElement("li");
+  const deleteBtn = document.createElement("button");
+  
+  deleteBtn.textContent = "Delete Element";
+  list.textContent = input.value;
+  
+  unorderedList.appendChild(list);
+  list.appendChild(deleteBtn);
+  
+  input.value = "";
+  
+  deleteBtn.addEventListener("click", () => {
+    unorderedList.removeChild(list);
+  });
 });
 
 // deleteBtn.addEventListener("click", () => {
